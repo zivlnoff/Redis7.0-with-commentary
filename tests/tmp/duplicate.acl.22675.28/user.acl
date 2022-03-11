@@ -1,0 +1,5 @@
+user alice on allcommands allkeys &* >alice
+user bob on -@all +@set +acl ~set* &* >bob
+user default on nopass ~* &* +@all
+
+user default on nopass ~* -@all

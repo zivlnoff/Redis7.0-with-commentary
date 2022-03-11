@@ -1,0 +1,43 @@
+### Starting server for test 
+24260:C 10 Mar 2022 11:00:52.992 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+24260:C 10 Mar 2022 11:00:52.992 # Redis version=6.9.241, bits=64, commit=00000000, modified=0, pid=24260, just started
+24260:C 10 Mar 2022 11:00:52.992 # Configuration loaded
+24260:M 10 Mar 2022 11:00:52.993 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+24260:M 10 Mar 2022 11:00:52.993 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+24260:M 10 Mar 2022 11:00:52.993 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+24260:M 10 Mar 2022 11:00:52.993 * monotonic clock: POSIX clock_gettime
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 6.9.241 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                  
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 24620
+ |    `-._   `._    /     _.-'    |     PID: 24260
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           https://redis.io       
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+24260:M 10 Mar 2022 11:00:52.993 # Server initialized
+24260:M 10 Mar 2022 11:00:52.993 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+24260:M 10 Mar 2022 11:00:52.994 * The AOF directory appendonlydir doesn't exist
+24260:M 10 Mar 2022 11:00:52.994 * Ready to accept connections
+24260:M 10 Mar 2022 11:00:52.994 * The server is now ready to accept connections at /home/colvtzzi/Desktop/redis-7.0/tests/tmp/server.22675.22/socket
+24260:M 10 Mar 2022 11:00:53.020 - Accepted 127.0.0.1:36741
+24260:M 10 Mar 2022 11:00:53.020 - Client closed connection id=3 addr=127.0.0.1:36741 laddr=127.0.0.1:24620 fd=8 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37632 events=r cmd=ping user=default redir=-1 resp=2
+24260:M 10 Mar 2022 11:00:53.079 - Accepted 127.0.0.1:34007
+### Starting test Only default user has access to all channels irrespective of flag in tests/unit/acl.tcl
+24260:M 10 Mar 2022 11:00:53.081 - Client closed connection id=4 addr=127.0.0.1:34007 laddr=127.0.0.1:24620 fd=8 name= age=0 idle=0 flags=N db=9 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37632 events=r cmd=acl|getuser user=default redir=-1 resp=2
+24260:signal-handler (1646881253) Received SIGTERM scheduling shutdown...
+24260:M 10 Mar 2022 11:00:53.197 # User requested shutdown...
+24260:M 10 Mar 2022 11:00:53.197 * Saving the final RDB snapshot before exiting.
+24260:M 10 Mar 2022 11:00:53.199 * DB saved on disk
+24260:M 10 Mar 2022 11:00:53.199 * Removing the pid file.
+24260:M 10 Mar 2022 11:00:53.199 * Removing the unix socket file.
+24260:M 10 Mar 2022 11:00:53.199 # Redis is now ready to exit, bye bye...

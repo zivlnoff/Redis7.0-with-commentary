@@ -1,0 +1,357 @@
+### Starting server for test 
+31044:C 10 Mar 2022 11:01:33.105 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+31044:C 10 Mar 2022 11:01:33.105 # Redis version=6.9.241, bits=64, commit=00000000, modified=0, pid=31044, just started
+31044:C 10 Mar 2022 11:01:33.105 # Configuration loaded
+31044:M 10 Mar 2022 11:01:33.105 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+31044:M 10 Mar 2022 11:01:33.105 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+31044:M 10 Mar 2022 11:01:33.105 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+31044:M 10 Mar 2022 11:01:33.105 * monotonic clock: POSIX clock_gettime
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 6.9.241 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                  
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 21627
+ |    `-._   `._    /     _.-'    |     PID: 31044
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           https://redis.io       
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+31044:M 10 Mar 2022 11:01:33.106 # Server initialized
+31044:M 10 Mar 2022 11:01:33.106 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+31044:M 10 Mar 2022 11:01:33.106 * The AOF directory appendonlydir doesn't exist
+31044:M 10 Mar 2022 11:01:33.106 * Ready to accept connections
+31044:M 10 Mar 2022 11:01:33.106 * The server is now ready to accept connections at /home/colvtzzi/Desktop/redis-7.0/tests/tmp/server.22657.36/socket
+31044:M 10 Mar 2022 11:01:33.143 - Accepted 127.0.0.1:40879
+31044:M 10 Mar 2022 11:01:33.143 - Client closed connection id=3 addr=127.0.0.1:40879 laddr=127.0.0.1:21627 fd=8 name= age=0 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37632 events=r cmd=ping user=default redir=-1 resp=2
+31044:M 10 Mar 2022 11:01:33.242 - Accepted 127.0.0.1:33621
+### Starting test Crash report generated on DEBUG SEGFAULT in tests/integration/logging.tcl
+
+
+=== REDIS BUG REPORT START: Cut & paste starting from here ===
+31044:M 10 Mar 2022 11:01:33.243 # Redis 6.9.241 crashed by signal: 11, si_code: 2
+31044:M 10 Mar 2022 11:01:33.243 # Accessing address: 0x7fba258fb000
+31044:M 10 Mar 2022 11:01:33.243 # Crashed running the instruction at: 0x562f548e4c5f
+
+------ STACK TRACE ------
+EIP:
+src/redis-server 127.0.0.1:21627(debugCommand+0x2bf)[0x562f548e4c5f]
+
+Backtrace:
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x12980)[0x7fba24d1c980]
+src/redis-server 127.0.0.1:21627(debugCommand+0x2bf)[0x562f548e4c5f]
+src/redis-server 127.0.0.1:21627(call+0x96)[0x562f54885b46]
+src/redis-server 127.0.0.1:21627(processCommand+0xb20)[0x562f54888b20]
+src/redis-server 127.0.0.1:21627(processCommandAndResetClient+0x1c)[0x562f5489f07c]
+src/redis-server 127.0.0.1:21627(processInputBuffer+0xdd)[0x562f548a1e3d]
+src/redis-server 127.0.0.1:21627(readQueryFromClient+0x290)[0x562f548a5450]
+src/redis-server 127.0.0.1:21627(+0x13469a)[0x562f5494769a]
+src/redis-server 127.0.0.1:21627(aeProcessEvents+0x1b7)[0x562f5487d707]
+src/redis-server 127.0.0.1:21627(aeMain+0x1d)[0x562f5487db4d]
+src/redis-server 127.0.0.1:21627(main+0x31a)[0x562f5487991a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xe7)[0x7fba2493ac87]
+src/redis-server 127.0.0.1:21627(_start+0x2a)[0x562f54879dfa]
+
+------ REGISTERS ------
+31044:M 10 Mar 2022 11:01:33.244 # 
+RAX:00007fba258fb000 RBX:00007fba244cb600
+RCX:00007fba24a34713 RDX:0000000000000001
+RDI:0000000000000000 RSI:0000000000001000
+RBP:00007ffe4d606e40 RSP:00007ffe4d605ab0
+R8 :00000000ffffffff R9 :0000000000000000
+R10:0000000000000022 R11:0000000000000246
+R12:0000000000000002 R13:00007fba24458cb0
+R14:0000000000000000 R15:000000007a2ab49a
+RIP:0000562f548e4c5f EFL:0000000000010207
+CSGSFS:002b000000000033
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605abf) -> 0000562f54965e28
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605abe) -> 00007ffe4d605b48
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605abd) -> 000000770000007c
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605abc) -> 0000000000000002
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605abb) -> 0010000000000000
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605aba) -> 0000000000000001
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab9) -> 0000000000000000
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab8) -> 0000000000000002
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab7) -> 0010000000000000
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab6) -> 00007ffe4d605b00
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab5) -> 0000000000000000
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab4) -> 00007ffe4d605af8
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab3) -> 00007fba2441aa33
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab2) -> 00007ffe4d605ae0
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab1) -> 0000000000000000
+31044:M 10 Mar 2022 11:01:33.244 # (00007ffe4d605ab0) -> 00007ffe4d605ad8
+
+------ INFO OUTPUT ------
+# Server
+redis_version:6.9.241
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:e1ae8e167af12920
+redis_mode:standalone
+os:Linux 5.4.0-104-generic x86_64
+arch_bits:64
+multiplexing_api:epoll
+atomicvar_api:c11-builtin
+gcc_version:7.5.0
+process_id:31044
+process_supervised:no
+run_id:113de886fd1776b1f26514681001b234bf15da8f
+tcp_port:21627
+server_time_usec:1646881293243256
+uptime_in_seconds:0
+uptime_in_days:0
+hz:10
+configured_hz:10
+lru_clock:2714125
+executable:/home/colvtzzi/Desktop/redis-7.0/src/redis-server
+config_file:/home/colvtzzi/Desktop/redis-7.0/./tests/tmp/redis.conf.22657.37
+io_threads_active:0
+
+# Clients
+connected_clients:1
+cluster_connections:0
+maxclients:4064
+client_recent_max_input_buffer:0
+client_recent_max_output_buffer:0
+blocked_clients:0
+tracking_clients:0
+clients_in_timeout_table:0
+
+# Memory
+used_memory:636872
+used_memory_human:621.95K
+used_memory_rss:6160384
+used_memory_rss_human:5.88M
+used_memory_peak:636872
+used_memory_peak_human:621.95K
+used_memory_peak_perc:100.30%
+used_memory_overhead:585088
+used_memory_startup:547272
+used_memory_dataset:51784
+used_memory_dataset_perc:57.79%
+allocator_allocated:808000
+allocator_active:999424
+allocator_resident:3854336
+total_system_memory:4090572800
+total_system_memory_human:3.81G
+used_memory_lua:37888
+used_memory_vm_eval:37888
+used_memory_lua_human:37.00K
+used_memory_scripts_eval:0
+number_of_cached_scripts:0
+number_of_functions:0
+number_of_libraries:0
+used_memory_vm_functions:37888
+used_memory_vm_total:75776
+used_memory_vm_total_human:74.00K
+used_memory_functions:184
+used_memory_scripts:184
+used_memory_scripts_human:184B
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+allocator_frag_ratio:1.24
+allocator_frag_bytes:191424
+allocator_rss_ratio:3.86
+allocator_rss_bytes:2854912
+rss_overhead_ratio:1.60
+rss_overhead_bytes:2306048
+mem_fragmentation_ratio:10.77
+mem_fragmentation_bytes:5588264
+mem_not_counted_for_evict:0
+mem_replication_backlog:0
+mem_total_replication_buffers:0
+mem_clients_slaves:0
+mem_clients_normal:37632
+mem_cluster_links:0
+mem_aof_buffer:0
+mem_allocator:jemalloc-5.2.1
+active_defrag_running:0
+lazyfree_pending_objects:0
+lazyfreed_objects:0
+
+# Persistence
+loading:0
+async_loading:0
+current_cow_peak:0
+current_cow_size:0
+current_cow_size_age:0
+current_fork_perc:0.00
+current_save_keys_processed:0
+current_save_keys_total:0
+rdb_changes_since_last_save:0
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1646881293
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:-1
+rdb_current_bgsave_time_sec:-1
+rdb_saves:0
+rdb_last_cow_size:0
+rdb_last_load_keys_expired:0
+rdb_last_load_keys_loaded:0
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_rewrites:0
+aof_last_write_status:ok
+aof_last_cow_size:0
+module_fork_in_progress:0
+module_fork_last_cow_size:0
+
+# Stats
+total_connections_received:2
+total_commands_processed:2
+instantaneous_ops_per_sec:0
+total_net_input_bytes:59
+total_net_output_bytes:12
+instantaneous_input_kbps:0.00
+instantaneous_output_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_keys:0
+expired_stale_perc:0.00
+expired_time_cap_reached_count:0
+expire_cycle_cpu_milliseconds:0
+evicted_keys:0
+evicted_clients:0
+total_eviction_exceeded_time:0
+current_eviction_exceeded_time:0
+keyspace_hits:0
+keyspace_misses:0
+pubsub_channels:0
+pubsub_patterns:0
+latest_fork_usec:0
+total_forks:0
+migrate_cached_sockets:0
+slave_expires_tracked_keys:0
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+total_active_defrag_time:0
+current_active_defrag_time:0
+tracking_total_keys:0
+tracking_total_items:0
+tracking_total_prefixes:0
+unexpected_error_replies:0
+total_error_replies:0
+dump_payload_sanitizations:0
+total_reads_processed:4
+total_writes_processed:2
+io_threaded_reads_processed:0
+io_threaded_writes_processed:0
+reply_buffer_shrinks:0
+reply_buffer_expands:0
+
+# Replication
+role:master
+connected_slaves:0
+master_failover_state:no-failover
+master_replid:a479971e10c52c47d348363abb1f9df0b7119d4c
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:0.005923
+used_cpu_user:0.000000
+used_cpu_sys_children:0.000000
+used_cpu_user_children:0.000000
+used_cpu_sys_main_thread:0.005827
+used_cpu_user_main_thread:0.000000
+
+# Modules
+
+# Commandstats
+cmdstat_select:calls=1,usec=1,usec_per_call=1.00,rejected_calls=0,failed_calls=0
+cmdstat_ping:calls=1,usec=1,usec_per_call=1.00,rejected_calls=0,failed_calls=0
+
+# Errorstats
+
+# Latencystats
+latency_percentiles_usec_select:p50=1.003,p99=1.003,p99.9=1.003
+latency_percentiles_usec_ping:p50=1.003,p99=1.003,p99.9=1.003
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+
+------ CLIENT LIST OUTPUT ------
+id=4 addr=127.0.0.1:33621 laddr=127.0.0.1:21627 fd=8 name= age=0 idle=0 flags=N db=9 sub=0 psub=0 multi=-1 qbuf=29 qbuf-free=20445 argv-mem=13 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37661 events=r cmd=debug user=default redir=-1 resp=2
+
+------ CURRENT CLIENT INFO ------
+id=4 addr=127.0.0.1:33621 laddr=127.0.0.1:21627 fd=8 name= age=0 idle=0 flags=N db=9 sub=0 psub=0 multi=-1 qbuf=29 qbuf-free=20445 argv-mem=13 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37661 events=r cmd=debug user=default redir=-1 resp=2
+argv[0]: '"debug"'
+argv[1]: '"segfault"'
+
+------ MODULES INFO OUTPUT ------
+
+------ CONFIG DEBUG OUTPUT ------
+io-threads-do-reads no
+lazyfree-lazy-eviction no
+lazyfree-lazy-expire no
+lazyfree-lazy-server-del no
+lazyfree-lazy-user-del no
+lazyfree-lazy-user-flush no
+repl-diskless-sync yes
+replica-read-only yes
+activedefrag no
+repl-diskless-load disabled
+sanitize-dump-payload no
+io-threads 1
+list-compress-depth 0
+proto-max-bulk-len 512mb
+client-query-buffer-limit 1gb
+
+------ FAST MEMORY TEST ------
+31044:M 10 Mar 2022 11:01:33.244 # Bio thread for job type #0 terminated
+31044:M 10 Mar 2022 11:01:33.244 # Bio thread for job type #1 terminated
+31044:M 10 Mar 2022 11:01:33.244 # Bio thread for job type #2 terminated
+*** Preparing to test memory region 562f54cc2000 (2297856 bytes)
+*** Preparing to test memory region 562f557f7000 (135168 bytes)
+*** Preparing to test memory region 7fba21b67000 (8388608 bytes)
+*** Preparing to test memory region 7fba22368000 (8388608 bytes)
+*** Preparing to test memory region 7fba22b69000 (8388608 bytes)
+*** Preparing to test memory region 7fba2336a000 (8388608 bytes)
+*** Preparing to test memory region 7fba24000000 (8388608 bytes)
+*** Preparing to test memory region 7fba24d06000 (16384 bytes)
+*** Preparing to test memory region 7fba24f25000 (16384 bytes)
+*** Preparing to test memory region 7fba258dc000 (32768 bytes)
+*** Preparing to test memory region 7fba258fe000 (4096 bytes)
+.O.O.O.O.O.O.O.O.O.O.O
+Fast memory test PASSED, however your memory can still be broken. Please run a memory test for several hours if possible.
+
+------ DUMPING CODE AROUND EIP ------
+Symbol: debugCommand (base: 0x562f548e49a0)
+Module: src/redis-server 127.0.0.1:21627 (base 0x562f54813000)
+$ xxd -r -p /tmp/dump.hex /tmp/dump.bin
+$ objdump --adjust-vma=0x562f548e49a0 -D -b binary -m i386:x86-64 /tmp/dump.bin
+------
+31044:M 10 Mar 2022 11:01:33.693 # dump of function (hexdump of 831 bytes):
+554889e54157415641554154534889fb4881ec681300004c8b6f50448b674864488b042528000000488945c831c0498b45084183fc02488b400848898588ecffff0f8411020000488bbd88ecffff488d358d231200e8c63ef9ff85c00f843e020000488bbd88ecffff488d3589cf1100e8ab3ef9ff85c00f84951500004c8bb588ecffff488d35602312004c89f7e88d3ef9ff85c075714531f64183fc0248c785a0ecffff000000000f8f21020000488bbd88ecffff488d352e231200e85e3ef9ff83f8014c89f619ff83e703e8ce2afaff488d35cf0b12004889dfe83fc0fbff488b45c86448330425280000000f85f9140000488d65d85b415c415d415e415f5dc30f1f440000488d35e42212004c89f7e8093ef9ff85c00f8478ffffff488bbd88ecffff488d35f2571300e8ee3df9ff85c00f8416030000488bbd88ecffff488d35bd221200e8d33df9ff85c00f84d81a0000488bbd88ecffff488d355ee41000e8b83df9ff85c00f85a80100004183fc030f8496020000488bbd88ecffff488d3599221200e8933df9ff85c04189c60f84c8010000488bbd88ecffff488d35b3221200e8753df9ff85c00f856d030000448b0db6873f004585c90f857007000031d231f6bfffffffffe83f7dfcff4889dfe817a4fbff488b3d48883f004885ff7405e84655ffffe8d15cffffe87c63ffff488b3d2d883f00e860adffff83e0fd0f85b41900004889dfe81fa4fbff833d88863f000348c70515883f00000000007f1b488d35240b1200bf0300000031c0e868d4f9ff0f1f840000000000488b35c13c3e004889dfe8f1bafbffe98dfeffff0f1f4000488d35d6e210004889c7e8b93cf9ff85c00f85d8fdffff488dbdb0ecffff488d3523163900b962000000f348a5488db5b0ecffff4889dfe83ce4fbffe948feffff0f1f80000000004531c941b8ffffffffb922000000ba01000000be0010000031ffe8913af9ffc60078e91afeffff660f1f840000000000498b7510488d95a0ecffff31c94889dfe88b4dfcff85c00f85f4fdffff4c8bb5a0ecffff4d85f60f88fb010000488b4350488b4008488b400848898588ecffffe99afdffff0f1f00488bbd88ecffff488d35b7681400e8f53bf9ff4183fc030f8545feffff85c00f853dfeffff498b
+
+=== REDIS BUG REPORT END. Make sure to include from START to END. ===
+
+       Please report the crash by opening an issue on github:
+
+           http://github.com/redis/redis/issues
+
+  Suspect RAM error? Use redis-server --test-memory to verify it.
+

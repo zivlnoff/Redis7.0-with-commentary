@@ -1,0 +1,46 @@
+### Starting server for test 
+24163:C 10 Mar 2022 11:00:52.381 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+24163:C 10 Mar 2022 11:00:52.381 # Redis version=6.9.241, bits=64, commit=00000000, modified=0, pid=24163, just started
+24163:C 10 Mar 2022 11:00:52.381 # Configuration loaded
+24163:M 10 Mar 2022 11:00:52.381 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+24163:M 10 Mar 2022 11:00:52.381 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+24163:M 10 Mar 2022 11:00:52.381 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+24163:M 10 Mar 2022 11:00:52.381 * monotonic clock: POSIX clock_gettime
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 6.9.241 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                  
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 24619
+ |    `-._   `._    /     _.-'    |     PID: 24163
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           https://redis.io       
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+24163:M 10 Mar 2022 11:00:52.382 # Server initialized
+24163:M 10 Mar 2022 11:00:52.382 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+24163:M 10 Mar 2022 11:00:52.382 * The AOF directory appendonlydir doesn't exist
+24163:M 10 Mar 2022 11:00:52.382 * Ready to accept connections
+24163:M 10 Mar 2022 11:00:52.382 * The server is now ready to accept connections at /home/colvtzzi/Desktop/redis-7.0/tests/tmp/server.22675.19/socket
+24163:M 10 Mar 2022 11:00:52.416 - Accepted 127.0.0.1:40907
+24163:M 10 Mar 2022 11:00:52.416 - Client closed connection id=3 addr=127.0.0.1:40907 laddr=127.0.0.1:24619 fd=8 name= age=0 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37632 events=r cmd=ping user=default redir=-1 resp=2
+24163:M 10 Mar 2022 11:00:52.516 - Accepted 127.0.0.1:42341
+### Starting test Default user has access to all channels irrespective of flag in tests/unit/acl.tcl
+### Starting test Update acl-pubsub-default, existing users shouldn't get affected in tests/unit/acl.tcl
+### Starting test Single channel is valid in tests/unit/acl.tcl
+### Starting test Single channel is not valid with allchannels in tests/unit/acl.tcl
+24163:M 10 Mar 2022 11:00:52.521 - Client closed connection id=4 addr=127.0.0.1:42341 laddr=127.0.0.1:24619 fd=8 name= age=0 idle=0 flags=N db=9 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37632 events=r cmd=config|set user=default redir=-1 resp=2
+24163:signal-handler (1646881252) Received SIGTERM scheduling shutdown...
+24163:M 10 Mar 2022 11:00:52.687 # User requested shutdown...
+24163:M 10 Mar 2022 11:00:52.687 * Saving the final RDB snapshot before exiting.
+24163:M 10 Mar 2022 11:00:52.688 * DB saved on disk
+24163:M 10 Mar 2022 11:00:52.688 * Removing the pid file.
+24163:M 10 Mar 2022 11:00:52.688 * Removing the unix socket file.
+24163:M 10 Mar 2022 11:00:52.688 # Redis is now ready to exit, bye bye...
